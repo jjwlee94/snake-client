@@ -1,22 +1,7 @@
-const { stdin } = require('process');
-const connect = require('./client');
+const { connect } = require("./client");
+const { setupInput } = require("./input");
 
-const handleUserInput = function(input) {
-  if (input === '\u0003') {
-    process.exit();
-  }
-};
+console.log("Connecting ...");
+connect();
 
-const setupInput = function (conn) {
-  connection = conn;
-  const stdin = process.stdin;
-  stdin.setRawMode(true);
-  stdin.setEncoding("utf8");
-  stdin.resume();
-  stdin.on("data", handleUserInput);
-  return stdin;
-};
-
-console.log("Connecting ..."); 
-
-setupInput(connect());
+setupInput();
