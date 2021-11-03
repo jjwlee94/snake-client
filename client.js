@@ -13,6 +13,9 @@ const connect = function () {
     console.log("Connection established");
   });
 
+  const name = "LJW"
+  conn.write(`Name: ${name}`);
+
   return conn;
 };
 
